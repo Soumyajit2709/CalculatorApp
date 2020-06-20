@@ -21,21 +21,21 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/addorsub"
+                android:id="@+id/openbrackets"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:layout_weight="1"
                 android:background="@drawable/ripple_num"
-                android:text="+/-"
+                android:text="("
                 android:textColor="#fff"
                 android:textSize="30sp"/>
             <Button
-                android:id="@+id/brackets"
+                android:id="@+id/closebrackets"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:layout_weight="1"
                 android:background="@drawable/ripple_num"
-                android:text="()"
+                android:text=")"
                 android:textColor="#fff"
                 android:textSize="30sp"/>
             <Button

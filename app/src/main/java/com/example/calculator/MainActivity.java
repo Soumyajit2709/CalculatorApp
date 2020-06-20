@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
     Button number7;
     Button number8;
     Button number9;
-    Button addorsub;
-    Button brackets;
+    Button openbrac;
+    Button closebrac;
     Button percentage;
     Button division;
     Button multiplication;
@@ -247,16 +247,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        addorsub.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String s = textView.getText().toString();
-                double res = Double.parseDouble(s + "");
-                res*=-1;
-                ans=String.valueOf(res);
-                textView.setText(res + "");
-            }
-        });
 
         dot.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -296,6 +286,38 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        openbrac.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!textView.getText().toString().isEmpty())
+                {
+                    String s = textView.getText().toString();
+                    char ch=s.charAt(s.length()-1);
+                    if(ch!='+' && ch!='-' && ch!='%' && ch!='*' && ch!='/' && ch!='.') {
+                        a.add(s.length()-1);
+                        ans += "*";
+                        textView.setText(textView.getText() + "(");
+                    }
+                }
+            }
+        });
+
+        closebrac.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!textView.getText().toString().isEmpty())
+                {
+                    String s = textView.getText().toString();
+                    char ch=s.charAt(s.length()-1);
+                    if(ch!='+' && ch!='-' && ch!='%' && ch!='*' && ch!='/' && ch!='.') {
+                        a.add(s.length()-1);
+                        ans+="*";
+                        textView.setText(textView.getText() + ")");
+                    }
+                }
+            }
+        });
+
 
     }
 
@@ -320,9 +342,9 @@ public class MainActivity extends AppCompatActivity {
         equal = (Button)findViewById(R.id.equal);
 
         dot = (Button)findViewById(R.id.dot);
-        addorsub = (Button)findViewById(R.id.addorsub);
+        openbrac = (Button)findViewById(R.id.openbrackets);
         percentage = (Button)findViewById(R.id.percentage);
-        brackets = (Button)findViewById(R.id.brackets);
+        closebrac = (Button)findViewById(R.id.closebrackets);
 
         resultTextView = (TextView)findViewById(R.id.output);
         textView = (TextView)findViewById(R.id.data);
